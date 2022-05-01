@@ -1,6 +1,7 @@
-import {IonPage, IonContent, IonToolbar, IonButton, IonButtons, IonTitle} from "@ionic/react";
+import {IonPage, IonContent, IonToolbar, IonBackButton, IonButtons, IonTitle} from "@ionic/react";
 import React from 'react';
 import {useParams} from "react-router";
+import DevicesList from "../components/DevicesList";
 
 
 function Devices() {
@@ -9,18 +10,16 @@ function Devices() {
 
     return (
         <IonPage>
+            <IonToolbar>
+                <IonTitle> Devices </IonTitle>
+
+                <IonButtons slot="start">
+                    <IonBackButton defaultHref="home"/>
+                </IonButtons>
+            </IonToolbar>
+
             <IonContent>
-
-                <IonToolbar>
-
-                    <IonButtons slot="start">
-                        <IonButton href={'home'}> Home </IonButton>
-                    </IonButtons>
-
-                    <IonTitle>{'Device name'}</IonTitle>
-
-                </IonToolbar>
-
+                <DevicesList room={390}/>
             </IonContent>
         </IonPage>
     )

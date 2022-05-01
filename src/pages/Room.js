@@ -1,4 +1,4 @@
-import {IonPage, IonContent, IonToolbar, IonTitle, IonButtons, IonButton} from "@ionic/react";
+import {IonPage, IonContent, IonToolbar, IonTitle, IonButtons, IonBackButton} from "@ionic/react";
 import React, {useEffect, useState} from "react";
 import './css/Room.css';
 import {useParams} from "react-router";
@@ -33,7 +33,7 @@ function Room() {
                 <IonToolbar>
 
                     <IonButtons slot="start">
-                        <IonButton href={'home'}> Back </IonButton>
+                        <IonBackButton defaultHref={'/home'}/>
                     </IonButtons>
 
                     <IonTitle>{room.name}</IonTitle>

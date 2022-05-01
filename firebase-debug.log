@@ -1,0 +1,90 @@
+[debug] [2022-05-01T20:15:30.716Z] ----------------------------------------------------------------------
+[debug] [2022-05-01T20:15:30.720Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Администратор\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-05-01T20:15:30.721Z] CLI Version:   10.7.2
+[debug] [2022-05-01T20:15:30.722Z] Platform:      win32
+[debug] [2022-05-01T20:15:30.722Z] Node Version:  v16.14.0
+[debug] [2022-05-01T20:15:30.723Z] Time:          Sun May 01 2022 23:15:30 GMT+0300 (Москва, стандартное время)
+[debug] [2022-05-01T20:15:30.724Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-01T20:15:30.733Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-01T20:15:30.734Z] > authorizing via signed-in user (egor.lapteffff@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\OpenServer\domains\smarthouse
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-05-01T20:15:58.898Z] > refreshing access token with scopes: []
+[debug] [2022-05-01T20:15:58.899Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2022-05-01T20:15:59.040Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","date":"Sun, 01 May 2022 20:15:58 GMT","pragma":"no-cache","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2022-05-01T20:15:59.057Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2022-05-01T20:15:59.531Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2022-05-01T20:15:59.531Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project smarthouse-int (smarthouse-int) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[debug] [2022-05-01T20:16:29.947Z] ----------------------------------------------------------------------
+[debug] [2022-05-01T20:16:29.950Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Администратор\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-05-01T20:16:29.951Z] CLI Version:   10.7.2
+[debug] [2022-05-01T20:16:29.951Z] Platform:      win32
+[debug] [2022-05-01T20:16:29.952Z] Node Version:  v16.14.0
+[debug] [2022-05-01T20:16:29.953Z] Time:          Sun May 01 2022 23:16:29 GMT+0300 (Москва, стандартное время)
+[debug] [2022-05-01T20:16:29.953Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-05-01T20:16:29.962Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-05-01T20:16:29.962Z] > authorizing via signed-in user (egor.lapteffff@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\OpenServer\domains\smarthouse
+
+Before we get started, keep in mind:
+
+  * You are currently outside your home directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2022-05-01T20:16:36.556Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2022-05-01T20:16:37.023Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2022-05-01T20:16:37.024Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project smarthouse-int (smarthouse-int) 
+[info] 
+=== Hosting Setup
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
