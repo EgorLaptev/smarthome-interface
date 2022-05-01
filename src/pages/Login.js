@@ -9,7 +9,7 @@ import './css/Login.css';
 
 function Login(props) {
 
-    const api = 'http://127.0.0.1:8000/api';
+    const api = 'https://smarthouse-api.herokuapp.com/api';
     const token = 'a5k0GRDG3Gn5oBxc3ne8OvGntri2BCuN';
 
     function login(e) {

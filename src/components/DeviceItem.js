@@ -13,7 +13,7 @@ import {bookmarkOutline} from "ionicons/icons";
 
 function DeviceItem(props) {
 
-    const api = 'http://127.0.0.1:8000/api';
+    const api = 'https://smarthouse-api.herokuapp.com/api';
     const token = 'a5k0GRDG3Gn5oBxc3ne8OvGntri2BCuN';
 
     function updateDevice(e) {

@@ -8,7 +8,7 @@ import MacroItem from "./MacroItem";
 
 function MacrosList(props) {
 
-    const api = 'http://smart-house/api';
+    const api = 'https://smarthouse-api.herokuapp.com/api';
     const token = 'a5k0GRDG3Gn5oBxc3ne8OvGntri2BCuN';
 
     const [macros, setMacros] = useState([]);
