@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg} from "@ionic/react";
+import {IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonImg, IonSpinner} from "@ionic/react";
 
 
 function RoomsList(props) {
@@ -9,11 +9,9 @@ function RoomsList(props) {
 
     const [rooms, setRooms] = useState([]);
 
-    useEffect(() => {
-        loadRooms();
-    }, []);
+    useEffect(() => loadRooms() , []);
 
-    function loadRooms() {
+    async function loadRooms() {
 
         const url = `${api}/rooms`;
 
@@ -22,19 +20,20 @@ function RoomsList(props) {
             'Authorization': `Bearer ${token}`
         }
 
-        fetch(url, { headers })
-            .then(resp => resp.json())
-            .then(rooms => setRooms(rooms));
+        const rooms = await fetch(url, { headers }).then(resp => resp.json())
+
+        setRooms(rooms);
 
     }
 
-    return rooms.map( item =>
-        <IonCard routerLink={`/rooms/${item.id}`} key={item.id}>
-            <IonImg src="https://img.vini-pol.ru/files/1/3701/12480117/original/vodostojkij-laminat-na-kuhne-v-sovremennom-stile.jpg" alt={'kitchen'}/>
+    return rooms.map( ({ id, name, photo }) =>
+        <IonCard routerLink={`/rooms/${ id }`} key={ id }>
+
+            <img style={{maxHeight: '125px', width: '100%', objectFit: 'cover'}} src={photo} alt={'room\'s image'}/>
 
             <IonCardHeader>
-                <IonCardSubtitle>Room</IonCardSubtitle>
-                <IonCardTitle>{item.name}</IonCardTitle>
+                <IonCardSubtitle> Room </IonCardSubtitle>
+                <IonCardTitle>{ name }</IonCardTitle>
             </IonCardHeader>
 
         </IonCard>

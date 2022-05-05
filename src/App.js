@@ -1,11 +1,10 @@
 import { Redirect, Route } from 'react-router-dom';
 import { IonApp, IonRouterOutlet, setupIonicReact, IonTabBar, IonTabButton, IonTabs, IonLabel, IonIcon } from '@ionic/react';
-import { homeOutline, rocketOutline, linkOutline, bookmarkOutline } from "ionicons/icons";
+import { homeOutline, rocketOutline, linkOutline } from "ionicons/icons";
 import { IonReactRouter } from '@ionic/react-router';
 import Home from './pages/Home';
 import Room from './pages/Room';
 import Devices from "./pages/Devices";
-import Favorites from "./pages/Favorites";
 import Macros from "./pages/Macros";
 import Login from "./pages/Login";
 
@@ -57,9 +56,6 @@ function App (props) {
                             <Route exact path="/devices">
                                 <Devices/>
                             </Route>
-                            <Route exact path="/favorites">
-                                <Favorites/>
-                            </Route>
                             <Route exact path="/macros">
                                 <Macros/>
                             </Route>
@@ -81,11 +77,6 @@ function App (props) {
                             <IonTabButton tab="macros" href='/macros'>
                                 <IonIcon icon={rocketOutline}/>
                                 <IonLabel>Macros</IonLabel>
-                            </IonTabButton>
-
-                            <IonTabButton tab="favorites" href='/favorites'>
-                                <IonIcon icon={bookmarkOutline}/>
-                                <IonLabel>Favorites</IonLabel>
                             </IonTabButton>
 
                         </IonTabBar>

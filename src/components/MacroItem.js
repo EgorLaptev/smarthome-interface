@@ -1,10 +1,11 @@
 import React, {useRef, useState} from 'react';
-import {IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, useIonToast, useIonModal} from "@ionic/react";
+import {IonCard, IonCardContent, IonCardHeader, IonCardTitle, IonCardSubtitle, IonButton, useIonToast, useIonModal, IonSpinner} from "@ionic/react";
 import MacroModal from "./MacroModal";
 
 
 function MacroItem ({ macro }) {
 
+    const [macroRunning, setMacroRunning] = useState(false)
     const [presentToast, dismissToast] = useIonToast();
     const [presentModal, dismissModal] = useIonModal(MacroModal, {
         macro: macro,
@@ -18,6 +19,8 @@ function MacroItem ({ macro }) {
 
     function runMacro(e) {
 
+        setMacroRunning(true);
+
         e.stopPropagation();
 
         const url = `${api}/macros/${macro.id}`;
@@ -30,9 +33,10 @@ function MacroItem ({ macro }) {
         fetch(url, { headers })
             .then(resp => resp.json())
             .then(data => {
+                setMacroRunning(false);
                 presentToast({
                     color: data.success ? 'light' : 'danger',
-                    message: data.success ? 'The macro is successful ran' : 'Something went wrong',
+                    message: data.success ? 'The macro is completed' : 'Something went wrong',
                     duration: 1000,
                 });
             })
@@ -52,7 +56,9 @@ function MacroItem ({ macro }) {
             </IonCardHeader>
 
             <IonCardContent>
-                <IonButton expand='block' onClick={runMacro}> Run </IonButton>
+                <IonButton expand='block' onClick={runMacro}>
+                    { macroRunning ? <IonSpinner name='crescent' color='light'/> : 'Run' }
+                </IonButton>
             </IonCardContent>
 
         </IonCard>

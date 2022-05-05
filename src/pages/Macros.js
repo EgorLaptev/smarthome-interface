@@ -23,7 +23,7 @@ function Macros(props) {
                 <IonTitle> Macros </IonTitle>
 
                 <IonButtons slot="start">
-                    <IonBackButton defaultHref="home    "/>
+                    <IonBackButton defaultHref="/home"/>
                 </IonButtons>
 
             </IonToolbar>
