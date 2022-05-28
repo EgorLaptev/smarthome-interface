@@ -5,27 +5,63 @@ import {
     IonCardTitle,
     IonCardHeader,
     IonCardContent,
-    IonSegment,
-    IonSegmentButton, IonLabel, IonRange,
-    IonButton, IonIcon
+    IonButton, IonIcon, useIonModal
 } from "@ionic/react";
 import {bookmarkOutline} from "ionicons/icons";
 import DeviceControls from "./DeviceControls";
+import DeviceModal from "./DeviceModal";
 
-function DeviceItem({ id, type_id, type_name, value, name }) {
+function DeviceItem({device}) {
+
+    const api = 'https://smarthouse-api.herokuapp.com/api';
+    const token = 'a5k0GRDG3Gn5oBxc3ne8OvGntri2BCuN';
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+    }
+
+    const [presentModal, dismissModal] = useIonModal(DeviceModal, {
+        device,
+        onDismiss() {
+            dismissModal()
+        }
+    });
+
+    function openDevice(e) {
+        e.stopPropagation();
+        presentModal({
+            initialBreakpoint: .4
+        })
+    }
+
+    function onUpdate(e) {
+
+        const url = `${api}/devices/${device.id}`;
+
+        const method = 'PATCH';
+
+        const body = JSON.stringify({
+            'value': e.detail.value
+        });
+
+        fetch(url, { method, headers, body });
+
+    }
+
 
     return (
 
-        <IonCard key={id}>
+        <IonCard key={device.id}>
 
             <IonCardHeader>
 
-                <IonCardSubtitle>{ name }</IonCardSubtitle>
-                <IonCardTitle>{ type_name }</IonCardTitle>
+                <IonCardSubtitle>{ device.name }</IonCardSubtitle>
+                <IonCardTitle>{ device.type_name }</IonCardTitle>
 
                 <IonCardContent>
 
-                    <DeviceControls type_id={type_id} value={value} id={id}/>
+                    <DeviceControls type_id={device.type_id} value={device.value} id={device.id} onUpdate={onUpdate}/>
 
                     <IonButton size='small' fill='clear' shape='round' style={{ position: 'absolute', right: '-25px', top: '-60px' }}>
                         <IonIcon icon={bookmarkOutline}/>

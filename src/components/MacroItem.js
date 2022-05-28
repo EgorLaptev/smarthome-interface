@@ -36,7 +36,7 @@ function MacroItem ({ macro }) {
                 setMacroRunning(false);
                 presentToast({
                     color: data.success ? 'light' : 'danger',
-                    message: data.success ? 'The macro is completed' : 'Something went wrong',
+                    message: data.success ? 'The macro is completed' : 'No connected actions',
                     duration: 1000,
                 });
             })

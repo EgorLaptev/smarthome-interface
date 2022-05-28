@@ -21,7 +21,7 @@ function Devices() {
             </IonToolbar>
 
             <IonContent>
-                <DevicesList room={390}/>
+                <DevicesList/>
             </IonContent>
         </IonPage>
     )

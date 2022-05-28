@@ -32,7 +32,7 @@ setupIonicReact();
 
 function App (props) {
 
-    const [isAuth, setAuth] = useState(true);
+    const [isAuth, setAuth] = useState(false);
 
     return (
         <IonApp>

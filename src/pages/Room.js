@@ -40,9 +40,7 @@ function Room() {
 
     }
 
-    const devicesList = devices.map( ({ id, name, type_id, type_name, value }) =>
-        <DeviceItem key={id} id={id} name={name} type_id={type_id} type_name={type_name} value={value}/>
-    );
+    const devicesList = devices.map( device => <DeviceItem key={device.id} device={device}/> );
     
     return (
         <IonPage>

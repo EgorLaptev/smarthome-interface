@@ -6,10 +6,11 @@ import {
     IonButton, IonButtons,
     IonContent,
     IonIcon,
-    IonRange,
-    IonCard, IonCardSubtitle, IonCardContent, IonCardHeader, IonSelect, IonSelectOption
+    IonCard, IonCardSubtitle, IonCardTitle,IonCardContent, IonCardHeader
 } from "@ionic/react";
 import {addOutline} from "ionicons/icons";
+import DeviceItem from "./DeviceItem";
+import DeviceControls from "./DeviceControls";
 
 
 function MacroModal({ onDismiss, macro }) {
@@ -18,6 +19,51 @@ function MacroModal({ onDismiss, macro }) {
 
     const api = 'https://smarthouse-api.herokuapp.com/api';
     const token = 'a5k0GRDG3Gn5oBxc3ne8OvGntri2BCuN';
+
+    const headers = {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`,
+    }
+
+    useEffect(loadDevices, []);
+
+    async function loadDevices() {
+
+        const devices = [];
+
+        for (const { device_id } of macro.devices ?? []) {
+            const url = `${api}/devices/${device_id}`;
+            const device = await fetch(url, { method: 'GET', headers }).then( resp => resp.json() );
+            devices.push(device);
+        }
+
+        setDevices(devices);
+
+    }
+
+    const devicesList = devices.map( device =>
+        <IonCard key={device.id}>
+
+            <IonCardHeader>
+
+                <IonCardSubtitle>{ device.name }</IonCardSubtitle>
+                <IonCardTitle>{ device.type_name }</IonCardTitle>
+
+                <IonCardContent>
+
+                    <DeviceControls type_id={device.type_id} value={device.value} onUpdate={onUpdate}/>
+
+                </IonCardContent>
+            </IonCardHeader>
+
+        </IonCard>
+    );
+
+    function onUpdate(e) {
+
+
+
+    }
 
     function deleteMacro() {}
 
@@ -35,39 +81,7 @@ function MacroModal({ onDismiss, macro }) {
 
             <IonContent>
 
-                <IonCard>
-                    <IonCardHeader>
-                        <IonCardSubtitle>Light</IonCardSubtitle>
-                    </IonCardHeader>
-                    <IonCardContent>
-                        <IonList>
-                            <IonItem>
-                                <IonLabel>Target</IonLabel>
-                                <IonSelect value='off'>
-                                    <IonSelectOption value='on'> On </IonSelectOption>
-                                    <IonSelectOption value='off'> Off </IonSelectOption>
-                                </IonSelect>
-                            </IonItem>
-                        </IonList>
-                    </IonCardContent>
-                </IonCard>
-
-                <IonCard>
-                    <IonCardHeader>
-                        <IonCardSubtitle>Thermostat</IonCardSubtitle>
-                    </IonCardHeader>
-                    <IonCardContent>
-                        <IonList>
-                            <IonItem>
-                                <IonLabel>Target</IonLabel>
-                                <IonRange min={10} max={30} pin={true} color="secondary">
-                                    <IonLabel slot="start">10</IonLabel>
-                                    <IonLabel slot="end">30</IonLabel>
-                                </IonRange>
-                            </IonItem>
-                        </IonList>
-                    </IonCardContent>
-                </IonCard>
+                { devicesList }
 
                 <IonButton expand='block' fill='clear' size='large'>Link Device</IonButton>
 

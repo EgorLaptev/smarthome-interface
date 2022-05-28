@@ -14,20 +14,11 @@
 }
 
 .login__form {
+    position: relative;
     display: grid;
     grid-template-columns: 1fr;
     grid-gap: 10px;
     width: 100%;
     padding: 20px;
     text-align: center;
-}
-
-.login__submit {
-    padding: 15px;
-    width: 100%;
-    border-radius: 10px;
-    border: none;
-    color: white;
-    background: #3880FF;
-    cursor: pointer;
 }

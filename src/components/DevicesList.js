@@ -3,7 +3,7 @@ import {useIonLoading} from "@ionic/react";
 import DeviceItem from "./DeviceItem";
 
 
-function DevicesList(props) {
+function DevicesList() {
 
     const api = 'https://smarthouse-api.herokuapp.com/api';
     const token = 'a5k0GRDG3Gn5oBxc3ne8OvGntri2BCuN';
@@ -58,8 +58,8 @@ function DevicesList(props) {
 
     }
 
-    return devices.map( item =>
-        <DeviceItem key={item.id} id={item.id} name={item.name} type_id={item.type_id} type_name={item.type_name} value={item.value}/>
+    return devices.map( device =>
+        <DeviceItem key={device.id} device={device}/>
     );
 
 }
